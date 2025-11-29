@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyc5xi7pgvy2t"]
+
+[ext_resource type="Script" uid="uid://bdfgc7ghtkpcc" path="res://scenes/projectiles/enemy_bullet/enemy_bullet.gd" id="1_5w7sh"]
+[ext_resource type="Texture2D" uid="uid://c7ihjgmxcuncf" path="res://icon.svg" id="1_kk8ch"]
+[ext_resource type="Script" uid="uid://c6ia6mqu7naso" path="res://scenes/components/hitbox/hitbox.gd" id="2_5w7sh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7rom"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_en6bl"]
+size = Vector2(24, 24)
+
+[node name="EnemyBullet" type="Area2D"]
+script = ExtResource("1_5w7sh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.18750001, 0.18750001)
+texture = ExtResource("1_kk8ch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g7rom")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_5w7sh")
+team = 1
+metadata/_custom_type_script = "uid://c6ia6mqu7naso"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_en6bl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
