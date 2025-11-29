@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://rx8jmw5180gv"]
+[gd_scene load_steps=6 format=3 uid="uid://rx8jmw5180gv"]
 
 [ext_resource type="Texture2D" uid="uid://c7ihjgmxcuncf" path="res://icon.svg" id="1_8afob"]
 [ext_resource type="Script" uid="uid://biu2yps6fys4b" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://bgkeduegl2a16" path="res://scenes/components/hurtbox/hurtbox.tscn" id="3_gmlin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(84, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
 size = Vector2(84, 84)
 
 [node name="Player" type="CharacterBody2D"]
@@ -15,3 +19,8 @@ texture = ExtResource("1_8afob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_gmlin")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_lvxji")
