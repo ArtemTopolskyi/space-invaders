@@ -7,6 +7,7 @@ func _ready() -> void:
   $Hurtbox.hit.connect(_on_hit);
   $ShootingInterval.timeout.connect(_on_shooting_interval_timeout);
 
+
 func _on_hit() -> void:
   queue_free();
 
@@ -21,3 +22,7 @@ func shoot_bullet() -> void:
   bullet.position = position;
 
   get_tree().root.add_child(bullet);
+
+
+func get_size() -> Vector2:
+  return $CollisionShape2D.shape.size;
