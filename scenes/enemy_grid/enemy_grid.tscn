@@ -4,3 +4,8 @@
 
 [node name="EnemyGrid" type="Node2D"]
 script = ExtResource("1_p0p2i")
+
+[node name="ShootingInterval" type="Timer" parent="."]
+autostart = true
+
+[node name="EnemiesContainer" type="Node2D" parent="."]

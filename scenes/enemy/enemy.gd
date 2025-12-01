@@ -14,7 +14,7 @@ func _on_hit() -> void:
 func shoot_bullet() -> void:
   var bullet = BULLET_SCENE.instantiate();
 
-  bullet.position = position;
+  bullet.global_position = global_position;
 
   get_tree().root.add_child(bullet);
 
